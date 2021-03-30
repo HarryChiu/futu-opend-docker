@@ -2,7 +2,7 @@
 
 This docker image dockerized the FutuOpenD Ubuntu version in this page: https://www.futunn.com/download/OpenAPI
 
-#Support 
+# Support 
 * _**Python <=3.7**_
 
 # Usage
