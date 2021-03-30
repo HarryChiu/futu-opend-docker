@@ -33,4 +33,4 @@ This docker image dockerized the FutuOpenD Ubuntu version in this page: https://
 
 
 # Example:
-    `docker run -d -p {API_PORT}:11111 -p {TELNET_PORT}:22222 -v {ABS_PATH_TO_RSA_FILE}:/home/rsa -v {ABS_PATH_TO_DATA_FOLDER}:/root/.com.futunn.FutuOpenD/F3CNN/ harrychiu/futu-opend -login_account={FUTU_ACCOUNT_ID} -login_pwd={FUTU_ACCOUNT_PWD}`
+    docker run -d -p {API_PORT}:11111 -p {TELNET_PORT}:22222 -v {ABS_PATH_TO_RSA_FILE}:/home/rsa -v {ABS_PATH_TO_DATA_FOLDER}:/root/.com.futunn.FutuOpenD/F3CNN/ harrychiu/futu-opend -login_account={FUTU_ACCOUNT_ID} -login_pwd={FUTU_ACCOUNT_PWD}
