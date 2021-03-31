@@ -2,9 +2,6 @@
 
 This docker image dockerized the FutuOpenD Ubuntu version in this page: https://www.futunn.com/download/OpenAPI
 
-# Support 
-* _**Python <=3.7**_
-
 # Usage
 
 * All CLI params in the link below can be added as a docker run command 
@@ -18,9 +15,9 @@ This docker image dockerized the FutuOpenD Ubuntu version in this page: https://
 
 * **Required for trade API:**
   
-    Mount an RSA key file to `/home/rsa` to enable the encryption mode 
-  
-    (**Currently DO NOT SUPPORT Python 3.8,  will return "RSA key is invalid"**)
+    Mount an RSA key file to `/home/rsa` to enable the encryption mode
+    
+    You can generate from here: https://travistidwell.com/jsencrypt/demo/ and save the private key as a file.
   
 
 * First time login will trig SMS verification code, you have to use telnet to input the code:
