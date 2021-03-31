@@ -1,14 +1,16 @@
 FROM ubuntu:16.04
 
-ADD "https://softwarefile.futunn.com/FutuOpenD_5.2.1408_Ubuntu16.04.tar.gz" /home/
-COPY docker-entrypoint.sh /home/
+ENV PACKAGE_NAME=FutuOpenD_5.2.1408_Ubuntu16.04
 
-WORKDIR /home
-RUN tar zxf "FutuOpenD_5.2.1408_Ubuntu16.04.tar.gz" && chmod +x docker-entrypoint.sh \
-    && sed -i '/<\/api_port>/a\<rsa_private_key>/home/rsa</rsa_private_key>' /home/FutuOpenD_5.2.1408_Ubuntu16.04/FutuOpenD_5.2.1408_Ubuntu16.04/FutuOpenD.xml
+RUN apt-get update && apt-get install -y wget net-tools && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* \
+    && wget -O - https://softwarefile.futunn.com/${PACKAGE_NAME}.tar.gz | tar -xzf - -C / \
+	&& ln -s /${PACKAGE_NAME}/${PACKAGE_NAME} /FutuOpenD \
+	&& sed -i '/<\/api_port>/a\<rsa_private_key>/home/rsa</rsa_private_key>' /FutuOpenD/FutuOpenD.xml
 
+WORKDIR /FutuOpenD
 EXPOSE 11111
 EXPOSE 22222
-ENTRYPOINT ["/home/docker-entrypoint.sh"]
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["--help"]
 
