@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-ENV PACKAGE_NAME=FutuOpenD_5.2.1408_Ubuntu16.04
+ENV PACKAGE_NAME=FutuOpenD_5.3.1508_Ubuntu16.04
 
 RUN apt-get update && apt-get install -y wget net-tools && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* \
     && wget -O - https://softwarefile.futunn.com/${PACKAGE_NAME}.tar.gz | tar -xzf - -C / \
